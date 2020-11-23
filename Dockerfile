@@ -42,11 +42,6 @@ COPY package.json yarn.lock ./
 
 RUN yarn install --check-files
 
-COPY ./entrypoints/docker-entrypoint.sh ./entrypoints/docker-entrypoint.sh
-COPY ./entrypoints/sidekiq-entrypoint.sh ./entrypoints/sidekiq-entrypoint.sh
-RUN chmod +x ./entrypoints/docker-entrypoint.sh
-RUN chmod +x ./entrypoints/sidekiq-entrypoint.sh
-
 COPY . ./
 
 ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]
